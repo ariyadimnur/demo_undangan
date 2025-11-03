@@ -1,0 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+body {
+  @apply bg-softGray text-gray-800 font-sans;
+}
+
+/* Efek glow di nama pasangan */
+@keyframes glow {
+  0%, 100% {
+    filter: drop-shadow(0 0 8px rgba(201,166,70,0.6));
+  }
+  50% {
+    filter: drop-shadow(0 0 14px rgba(201,166,70,0.9));
+  }
+}
+
+.animate-glow {
+  animation: glow 3s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    text-shadow: 0 0 6px rgba(201, 166, 70, 0.5), 0 0 12px rgba(201, 166, 70, 0.3);
+  }
+  50% {
+    text-shadow: 0 0 12px rgba(201, 166, 70, 0.9), 0 0 20px rgba(201, 166, 70, 0.5);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 0.15;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.25;
+    transform: scale(1.05);
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 6s ease-in-out infinite;
+}
+
+/* ✨ Light Sweep Animation for Rose Gold Cards */
+@keyframes roseGoldSweep {
+  0% {
+    transform: translateX(-150%) rotate(25deg);
+    opacity: 0;
+  }
+  30% {
+    opacity: 0.4;
+  }
+  50% {
+    transform: translateX(150%) rotate(25deg);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateX(150%) rotate(25deg);
+    opacity: 0;
+  }
+}
+
+.light-sweep-rosegold {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 120%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(245, 203, 167, 0.45),
+    rgba(230, 183, 169, 0.35),
+    transparent
+  );
+  animation: roseGoldSweep 10s ease-in-out infinite;
+  mix-blend-mode: screen;
+  pointer-events: none;
+  border-radius: 1.5rem;
+}
+
+/* ✨ Shimmer lembut untuk tombol rose gold */
+@keyframes shimmerRoseGold {
+  0% {
+    transform: translateX(-150%) rotate(25deg);
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.3;
+  }
+  60% {
+    transform: translateX(150%) rotate(25deg);
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateX(150%) rotate(25deg);
+    opacity: 0;
+  }
+}
+
+.btn-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-shimmer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.6),
+    transparent
+  );
+  transform: skewX(-20deg);
+  animation: shimmerRoseGold 8s infinite ease-in-out;
+  pointer-events: none;
+}
+
+@media (max-width: 640px) {
+  body {
+    overflow-x: hidden;
+  }
+}
