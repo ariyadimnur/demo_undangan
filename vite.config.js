@@ -3,4 +3,5 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
+  base: '/demo_undangan/', // <-- penting banget untuk GitHub Pages
 })
